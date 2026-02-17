@@ -6,7 +6,8 @@ import { View } from 'react-native';
 // import JustifyContentBasics from './assets/components/JustifyContentBasics';
 // import AlignItemsLayout from './assets/components/AlignItemsLayout';
 // import AlignSelfLayout from './assets/components/AlignSelfLayout';
-import AlignContentLayout from './assets/components/AlignContentLayout';
+// import AlignContentLayout from './assets/components/AlignContentLayout';
+import FlexWrapLayout from './assets/components/FlexWrapLayout';
 
 export default function App() {
   return (
@@ -17,8 +18,9 @@ export default function App() {
       {/* <JustifyContentBasics/> */}
       {/* <AlignItemsLayout/> */}
       {/* <AlignSelfLayout /> */}
-       <StatusBar />
-      <AlignContentLayout />
+      {/* <AlignContentLayout /> */}
+      <FlexWrapLayout />
+      <StatusBar />
     </View>
   );
 }
