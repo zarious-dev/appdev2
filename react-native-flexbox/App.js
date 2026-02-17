@@ -5,7 +5,8 @@ import { View } from 'react-native';
 // import DirectionLayout from './assets/components/DirectionLayout';
 // import JustifyContentBasics from './assets/components/JustifyContentBasics';
 // import AlignItemsLayout from './assets/components/AlignItemsLayout';
-import AlignSelfLayout from './assets/components/AlignSelfLayout';
+// import AlignSelfLayout from './assets/components/AlignSelfLayout';
+import AlignContentLayout from './assets/components/AlignContentLayout';
 
 export default function App() {
   return (
@@ -15,8 +16,9 @@ export default function App() {
       {/* <DirectionLayout/> */}
       {/* <JustifyContentBasics/> */}
       {/* <AlignItemsLayout/> */}
-      <StatusBar />
-      <AlignSelfLayout />
+      {/* <AlignSelfLayout /> */}
+       <StatusBar />
+      <AlignContentLayout />
     </View>
   );
 }
