@@ -1,15 +1,14 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 
-export default function Login() {
+export default function Login({ navigation }) {
     return (
         <View style={styles.container}>
 
             {/* header */}
             <View style={styles.header}>
                 <Image source={require('../../assets/login.png')} style={styles.loginImage} />
-                <Text style={styles.title}>Welcome Back</Text>
-                <Text style={styles.subtitle}>Sign in to continue</Text>
+                <Text style={styles.title}>Welcome</Text>
             </View>
 
             {/* Input Fields */}
@@ -41,7 +40,6 @@ export default function Login() {
             {/* Login Button */}
             <View style={styles.buttonContainer}>
                 <TouchableOpacity style={styles.button}>
-                    <Ionicons name="log-in-outline" size={20} color="#fff" style={styles.btnIcon} />
                     <Text style={styles.buttonText}>Login</Text>
                 </TouchableOpacity>
             </View>
@@ -49,7 +47,7 @@ export default function Login() {
             {/* Footer */}
             <View style={styles.footer}>
                 <Text style={styles.footerText}>Don't have an account? </Text>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
                     <Text style={styles.link}>Sign Up</Text>
                 </TouchableOpacity>
             </View>
@@ -63,36 +61,31 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-    },
-
-    header: {
-        flex: 2,
-        justifyContent: 'center',
         alignItems: 'center',
     },
 
+    header: {
+        alignItems: 'center',
+        marginTop: 90,
+        marginBottom: 30,
+    },
+
     loginImage: {
-        width: 100,
-        height: 100,
-        marginBottom: 12,
+        width: 150,
+        height: 150,
+        resizeMode: 'contain',
     },
 
     title: {
-        fontSize: 24,
+        fontSize: 30,
         fontWeight: 'bold',
         color: '#333',
-    },
-
-    subtitle: {
-        fontSize: 14,
-        color: '#888',
-        marginTop: 4,
+        marginTop: 5,
     },
 
     inputContainer: {
-        flex: 2,
-        justifyContent: 'center',
-        paddingHorizontal: 30,
+        width: '100%',
+        paddingHorizontal: 50,
     },
 
     inputWrapper: {
@@ -101,14 +94,15 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#ddd',
         borderRadius: 8,
-        paddingHorizontal: 12,
-        marginBottom: 16,
+        paddingHorizontal: 14,
+        marginTop: 20,
         height: 50,
         backgroundColor: '#f9f9f9',
+        width: '100%',
     },
 
     icon: {
-        marginRight: 10,
+        marginRight: 5,
     },
 
     input: {
@@ -117,30 +111,20 @@ const styles = StyleSheet.create({
         color: '#333',
     },
 
-    forgotText: {
-        alignSelf: 'flex-end',
-        color: '#007AFF',
-        fontSize: 13,
-    },
-
     buttonContainer: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
+        width: '100%',
+        paddingHorizontal: 50,
+        marginTop: 40,
     },
 
     button: {
-        flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        width: '85%',
+        borderRadius: 8,
         height: 50,
         backgroundColor: '#007AFF',
-        borderRadius: 8,
-    },
-
-    btnIcon: {
-        marginRight: 8,
+        width: '100%',
+        paddingHorizontal: 110,
     },
 
     buttonText: {
@@ -150,15 +134,15 @@ const styles = StyleSheet.create({
     },
 
     footer: {
-        flex: 0.5,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
+        marginTop: 20,  
     },
 
     footerText: {
         fontSize: 14,
-        color: '#555',
+        color: '#000',
     },
 
     link: {
