@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 
-export default function Signup() {
+export default function Signup({ navigation }) {
     return (
         <View style={styles.container}>
 
@@ -9,7 +9,6 @@ export default function Signup() {
             <View style={styles.header}>
                 <Image source={require('../../assets/login.png')} style={styles.loginImage} />
                 <Text style={styles.title}>Create Account</Text>
-                <Text style={styles.subtitle}>Sign up to get started</Text>
             </View>
 
             {/* Input Fields */}
@@ -61,7 +60,6 @@ export default function Signup() {
             {/* Signup Button */}
             <View style={styles.buttonContainer}>
                 <TouchableOpacity style={styles.button}>
-                    <Ionicons name="person-add-outline" size={20} color="#fff" style={styles.btnIcon} />
                     <Text style={styles.buttonText}>Sign Up</Text>
                 </TouchableOpacity>
             </View>
@@ -69,7 +67,7 @@ export default function Signup() {
             {/* Footer */}
             <View style={styles.footer}>
                 <Text style={styles.footerText}>Already have an account? </Text>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('Login')}>
                     <Text style={styles.link}>Login</Text>
                 </TouchableOpacity>
             </View>
@@ -83,36 +81,31 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-    },
-
-    header: {
-        flex: 1.5,
-        justifyContent: 'center',
         alignItems: 'center',
     },
 
+    header: {
+        alignItems: 'center',
+        marginTop: 60,
+        marginBottom: 20,
+    },
+
     loginImage: {
-        width: 100,
-        height: 100,
-        marginBottom: 12,
+        width: 130,
+        height: 130,
+        resizeMode: 'contain',
     },
 
     title: {
-        fontSize: 24,
+        fontSize: 30,
         fontWeight: 'bold',
         color: '#333',
-    },
-
-    subtitle: {
-        fontSize: 14,
-        color: '#888',
-        marginTop: 4,
+        marginTop: 5,
     },
 
     inputContainer: {
-        flex: 3,
-        justifyContent: 'center',
-        paddingHorizontal: 30,
+        width: '100%',
+        paddingHorizontal: 50,
     },
 
     inputWrapper: {
@@ -121,14 +114,15 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#ddd',
         borderRadius: 8,
-        paddingHorizontal: 12,
-        marginBottom: 16,
+        paddingHorizontal: 14,
+        marginTop: 20,
         height: 50,
         backgroundColor: '#f9f9f9',
+        width: '100%',
     },
 
     icon: {
-        marginRight: 10,
+        marginRight: 5,
     },
 
     input: {
@@ -138,23 +132,19 @@ const styles = StyleSheet.create({
     },
 
     buttonContainer: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
+        width: '100%',
+        paddingHorizontal: 50,
+        marginTop: 40,
     },
 
     button: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        width: '85%',
+        borderRadius: 8,
         height: 50,
         backgroundColor: '#007AFF',
-        borderRadius: 8,
-    },
-
-    btnIcon: {
-        marginRight: 8,
+        width: '100%',
     },
 
     buttonText: {
@@ -164,15 +154,14 @@ const styles = StyleSheet.create({
     },
 
     footer: {
-        flex: 0.5,
         flexDirection: 'row',
         justifyContent: 'center',
-        alignItems: 'center',
+        marginTop: 20,
     },
 
     footerText: {
         fontSize: 14,
-        color: '#555',
+        color: '#000',
     },
 
     link: {
