@@ -41,7 +41,7 @@ function DetailsScreen({ route }) {
       <Text>otherParam: {JSON.stringify(otherParam)}</Text>
       <Button
         onPress={() =>
-          navigation.push('Details', {
+          navigation.setParams('Details', {
             // Randomly generate an ID for demonstration purposes
             itemId: Math.floor(Math.random() * 100),
           })
