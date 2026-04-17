@@ -41,10 +41,10 @@ function DetailsScreen({ route }) {
       <Text>otherParam: {JSON.stringify(otherParam)}</Text>
       <Button
         onPress={() =>
-            navigation.push('Details', {
-              // Randomly generate an ID for demonstration purposes
-              itemId: Math.floor(Math.random() * 100),
-            })
+          navigation.push('Details', {
+            // Randomly generate an ID for demonstration purposes
+            itemId: Math.floor(Math.random() * 100),
+          })
         }
       >
         Go to Details... again
@@ -56,7 +56,10 @@ function DetailsScreen({ route }) {
 const RootStack = createNativeStackNavigator({
   screens: {
     Home: HomeScreen,
-    Details: DetailsScreen,
+    Details: {
+      screen: DetailsScreen,
+      initialParams: { itemId: 42 },
+    },
   },
 });
 
